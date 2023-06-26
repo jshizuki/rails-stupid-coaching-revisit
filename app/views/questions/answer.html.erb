@@ -1,2 +1,12 @@
-<%= @answer %>
-<%= link_to 'Ask a new question', ask_path %>
+<div class="container mt-3">
+  <h1>Stupid Coaching</h1>
+  <div class="text-group">
+    <p><%= @user_input %></p>
+    <p><i>- You</i></p>
+  </div>
+  <div class="text-group">
+    <p><%= @answer %></p>
+    <p><i>- Your coach</i></p>
+  </div>
+  <p><%= link_to 'Ask a new question', ask_path, class: 'link' %></p>
+</div>
