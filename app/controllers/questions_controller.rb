@@ -1,4 +1,6 @@
 class QuestionsController < ApplicationController
+  def ask; end
+
   def answer
     @user_input = params[:question]
     @answer = if @user_input == 'I am going to work'
