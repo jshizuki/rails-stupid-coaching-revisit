@@ -10,10 +10,6 @@ class QuestionsController < ApplicationController
               else
                 'I don\'t care, get dressed and go to work!'
               end
-
-    respond_to do |format|
-      format.html { render partial: 'answer', locals: { user_input: @user_input, answer: @answer } }
-      format.text { render plain: @answer }
-    end
+    render :ask
   end
 end
