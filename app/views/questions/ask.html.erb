@@ -1,12 +1,12 @@
 <div class="container mt-3" data-controller="insert-text">
   <h1>Stupid Coaching</h1>
   <p>Ask your coach anything:</p>
-  <form data-insert-text-target="form" data-action="submit->insert-text#insert">
+  <form data-insert-text-target="form" data-action="ajax:success->insert-text#insert">
     <div class="input-group">
       <input data-insert-text-target="input" class="form-control form-control-lg" type="text" name="query" placeholder="Type your question here">
       <button class="btn btn-success btn-large" type="submit">Ask</button>
     </div>
   </form>
-  <div data-insert-text-target="text"></div>
-  <p><%= link_to 'Ask a new question', root_path, class: 'link' %></p>
+  <div data-insert-text-target="text">
+  </div>
 </div>

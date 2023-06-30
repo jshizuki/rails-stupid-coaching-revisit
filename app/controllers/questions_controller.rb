@@ -12,8 +12,8 @@ class QuestionsController < ApplicationController
               end
 
     respond_to do |format|
-      format.html # Follow regular flow of Rails
-      format.text { render partial: 'answer', locals: { answer: @answer } }
+      format.html { render partial: 'answer', locals: { user_input: @user_input, answer: @answer } }
+      format.text { render plain: @answer }
     end
   end
 end

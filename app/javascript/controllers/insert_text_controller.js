@@ -8,17 +8,25 @@ export default class extends Controller {
     console.log("You are connected to the insert-text controller!");
     console.log("form", this.formTarget);
     console.log("text", this.textTarget);
-    console.log("element", this.element);
   }
+
+  // insert(event) {
+  //   event.preventDefault();
+  //   const url = `${this.formTarget.action}?query=${this.inputTarget.value}`;
+  //   fetch(url, {
+  //     headers: { "Accept": "text/html" } // Request HTML response instead of plain text
+  //   })
+  //     .then(response => response.text())
+  //     .then(data => {
+  //       this.textTarget.innerHTML = data;
+  //       this.inputTarget.value = "";
+  //     })
+  // }
 
   insert(event) {
     event.preventDefault();
-    const url = `${this.formTarget.action}?query=${this.inputTarget.value}`;
-    fetch(url, {headers: {"Accept": "text/plain"}})
-      .then(response => response.text())
-      .then((data) => {
-        this.textTarget.outerHTML = data
-      })
+    const response = event.detail[0]; // Access the response from the event detail
+    this.textTarget.innerHTML = response;
+    this.inputTarget.value = ""; // Clear the input field
   }
-
 }
