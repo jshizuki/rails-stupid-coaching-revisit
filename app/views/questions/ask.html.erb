@@ -1,21 +1,24 @@
-<div class="container mt-3">
+<div class="container mt-3" data-controller="insert-text">
   <h1 class="stupid-coaching">Stupid Coaching</h1>
   <p>Ask your coach anything:</p>
-  <form action="answer" data-turbo="false">
+  <form data-insert-text-target="form" data-action="submit->insert-text#insert" data-remote="true" action="/questions/answer" method="post">
+    <%# <form action="answer" data-turbo="false"> %>
     <div class="input-group">
-      <input class="form-control form-control-lg" type="text" name="query" placeholder="Type your question here">
+      <input data-insert-text-target="input" class="form-control form-control-lg" type="text" name="query" placeholder="Type your question here">
       <button class="btn btn-success btn-large" type="submit">Ask</button>
     </div>
   </form>
   <br>
-  <% if @user_input %>
-    <div class="text-group">
-      <p><%= @user_input %></p>
-      <p><i>- You</i></p>
-    </div>
-    <div class="text-group">
-      <p><%= @answer %></p>
-      <p><i>- Your coach</i></p>
-    </div>
-  <% end %>
+  <div data-insert-text-target="text">
+    <% if @user_input %>
+      <div class="text-group">
+        <p><%= @user_input %></p>
+        <p><i>- You</i></p>
+      </div>
+      <div class="text-group">
+        <p><%= @answer %></p>
+        <p><i>- Your coach</i></p>
+      </div>
+    <% end %>
+  </div>
 </div>
