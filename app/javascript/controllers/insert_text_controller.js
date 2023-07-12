@@ -22,7 +22,7 @@ export default class extends Controller {
         // this.commentsTarget.innerHTML = data
         const commentContainer = document.createElement("div");
         console.log(commentContainer);
-        commentContainer.innerHTML = data.trim();
+        commentContainer.innerHTML = data;
         this.commentsTarget.appendChild(commentContainer);
         this.inputTarget.value = ""; // Clear the input field
       })

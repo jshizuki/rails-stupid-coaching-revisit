@@ -25,7 +25,10 @@ p {
 .text-group {
   border-left: 10px solid gray;
   background-color: beige;
-  padding-left: inherit;
+}
+
+.text-group p {
+  margin-left: 10px;
 }
 
 .link {
