@@ -1,7 +1,7 @@
 <div class="container mt-3" data-controller="insert-text">
   <h1 class="stupid-coaching">Stupid Coaching</h1>
   <p>Ask your coach anything:</p>
-  <form data-insert-text-target="form" data-action="submit->insert-text#insert" data-remote="true" action="/questions/answer" method="post">
+  <form action="answer" data-insert-text-target="form" data-action="submit->insert-text#insert" data-remote="true">
     <%# <form action="answer" data-turbo="false"> %>
     <div class="input-group">
       <input data-insert-text-target="input" class="form-control form-control-lg" type="text" name="query" placeholder="Type your question here">
@@ -9,16 +9,9 @@
     </div>
   </form>
   <br>
-  <div data-insert-text-target="text">
+  <div data-insert-text-target="comments">
     <% if @user_input %>
-      <div class="text-group">
-        <p><%= @user_input %></p>
-        <p><i>- You</i></p>
-      </div>
-      <div class="text-group">
-        <p><%= @answer %></p>
-        <p><i>- Your coach</i></p>
-      </div>
+      <%= render partial: 'comment', locals: { user_input: @user_input, answer: @answer } %>
     <% end %>
   </div>
 </div>

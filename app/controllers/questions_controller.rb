@@ -12,7 +12,7 @@ class QuestionsController < ApplicationController
               end
     # render :ask
     respond_to do |format|
-      format.html { render partial: 'answer', locals: { user_input: @user_input, answer: @answer } }
+      format.html { render partial: 'comment', locals: { user_input: @user_input, answer: @answer } }
       format.text { render plain: @answer }
     end
   end
